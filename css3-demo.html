@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>css3 demo</title>
+	</head>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{padding: 12px;}
+		h1:nth-of-type(odd){
+			background-color: yellow;
+		}
+		h1:nth-of-type(even){
+			background-color: skyblue;
+		}
+		input[type="text"]:disabled{background-color: gray;}
+		input[type="text"]:read-only{background-color: darkgray;}
+		p::selection{background-color: burlywood;}
+		img:after{                    //浏览器支持问题严重
+			content: attr(alt);
+			display: block;
+			margin-top:4px ;
+		}
+		ul li:before{
+			content: counter(mycounter)".";
+		}
+		ul li{
+			counter-increment: mycounter;
+		}
+		p#word{font-size: 50px;text-shadow:4px 4px 4px #808080;}
+		#shadow{
+			height: 200px;
+			width: 150px;
+			border: 1px solid #000;
+			box-shadow: 10px 10px 10px #CCCCCC;
+		}
+		.size{
+			width: 300px;
+			border: 30px solid #ffaa00;
+			padding: 30px;
+			background-color: #ffff00;
+			margin: 20px auto;
+		}
+		#size1{box-sizing: border-box;}
+		#size2{box-sizing: content-box;}
+		#size3{box-sizing: padding-box;}
+		.linear{
+			width: 300px;
+			height: 300px;
+			margin: 20px auto;
+		}
+		#linear1{
+			background: linear-gradient(to bottom,orange,white);
+		}
+		#linear2{
+			background: linear-gradient(30deg,orange ,white);
+		}
+		#linear3{
+			background: linear-gradient(90deg,orange 20%,black 70%);
+		}
+		#linear4{
+			background: linear-gradient(to bottom,orange 0%, red 25%,yellow 50%,green 75%,black 100%);
+		}
+		#radial1{
+			background: radial-gradient(circle, orange, black);
+		}
+		#radial2{
+			background: radial-gradient(at left top,white,black);
+		}
+		#radial3{
+			background: radial-gradient(farthest-side at left top, white,black);
+		}
+		#radial4{
+			background: radial-gradient(circle 130px at 150px 150px, orange 0%,red 25%,yellow 50%,green 75%,black 100%);
+		}
+		a{
+			font-size: 50px;
+			transition-property: background-color;
+			transition-duration: .3s;
+			transition-timing-function: ease;
+		}
+		a:hover{
+			background: skyblue;
+		}
+		#tran{
+		    height: 240px;
+		    padding: 20px;
+		    position: relative;
+		    border: 1px solid;
+		}
+		#tran div{
+			width: 60px;
+			height: 40px;
+			text-align: center;
+			margin-bottom: 10px;
+			background: lightskyblue;
+			
+		}
+		#tran div:nth-child(1){
+			transition: all ease 3s;
+		}
+		#tran div:nth-child(2){
+			transition: all ease-in 3s;
+		}
+		#tran div:nth-child(3){
+			transition: all ease-out 3s;
+		}
+		#tran div:nth-child(4){
+			transition: all ease-in-out 3s;
+		}
+		#tran div:nth-child(5){
+			transition: all linear 3s;
+		}
+		#tran:hover div{
+			margin-left:90% ;
+			background: deepskyblue;
+			transform: rotate(360deg);
+			border-radius: 10px;
+			
+		}
+		#transf{
+			height: 240px;
+		    padding: 20px;
+		    border: 1px solid;
+		}
+		#transf div{
+			background: deepskyblue;
+			width: 70px;
+			height: 50px;
+			margin: 10px 10px;
+		}
+		#transf div:nth-child(1){
+			transform: skew(30deg);
+			display: inline-block;
+		}
+		#transf div:nth-child(2){
+			transform: rotate(30deg);
+			display: inline-block;
+		}
+		#transf div:nth-child(3){
+			transform: translate(80px,50px);
+		}
+		#transf div:nth-child(4){
+			transform: scale(0.5);
+		}
+		#transf div:nth-child(5){
+			transform: skew(30deg) rotate(30deg) translate(200px, -200px) scale(1.5);
+		}
+		
+		#imgShow{
+			border: 1px solid;
+			margin: 20px;
+			height: 700px;
+			//overflow: hidden;
+			position: relative;
+			perspective: 2500px;
+			text-align: center;
+			
+		}
+		#container{
+			transform-style: preserve-3d;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 300px;
+			height: 300px;
+			margin-left: -150px;
+			margin-top: -150px;
+		}
+		
+		#imgShow img{
+			width: 300px;
+			height: 300px;
+			position: absolute;
+			left: 50%;
+			top: 45%;
+			margin-left:-150px ;
+			margin-top: -150px;
+			
+		}
+		#imgShow img:nth-child(1){
+			transform: rotateY(0deg) translateZ(460.1216129px);
+			
+		}
+		#imgShow img:nth-child(2){
+			transform: rotateY(40deg) translateZ(460.1216129px);
+		}
+		#imgShow img:nth-child(3){
+			transform: rotateY(80deg) translateZ(460.1216129px);;
+		}
+		#imgShow img:nth-child(4){
+			transform: rotateY(120deg) translateZ(460.1216129px);;
+		}
+		#imgShow img:nth-child(5){
+			transform: rotateY(160deg) translateZ(460.1216129px);;
+		}
+		#imgShow img:nth-child(6){
+			transform: rotateY(200deg) translateZ(460.1216129px);;
+		}
+		#imgShow img:nth-child(7){
+			transform: rotateY(240deg) translateZ(460.1216129px);;
+		}
+		#imgShow img:nth-child(8){
+			transform: rotateY(280deg) translateZ(460.1216129px);;
+		}
+		#imgShow img:nth-child(9){
+			transform: rotateY(320deg) translateZ(460.1216129px);;
+		}
+		#btn{
+			background: deepskyblue;
+			position: absolute; 
+			bottom: 100px; 
+			right: 30px; 
+			width: 50px;
+			height: 30px;
+			color: white;
+			font-weight: bolder;
+			text-align: center;
+			line-height: 30px;
+			border-radius: 6px;
+			cursor: pointer;
+			
+		}
+	</style>
+	<body>
+		<section>
+			<h1>文章标题</h1>
+		  	<p>文章内容</p>
+		  	<h1>文章标题</h1>
+		  	<p>文章内容</p>
+		  	<h1>文章标题</h1>
+		  	<p>文章内容</p>
+		  	<h1>文章标题</h1>
+		  	<p>文章内容</p>
+		</section>
+		<br />
+		<br />
+		<p>disabled :</p>
+		<input type="text" value="disabled" disabled />
+		<input type="text" value="enabled"  />
+		<br />
+		<br />
+		<p>read-only : </p>
+		<input type="text" readonly="readonly" value="广东工业大学" />
+		<input type="text" value="network" />
+		<br />
+		<br />
+		<p>selection:::选我选我</p>
+		<br />
+		<br />
+		<p>invalid:不符合HTML5元素的规定格式时被选中<br />valid则相反  <br /> required为必须填写的内容optional为可选  </p>
+		<br />
+		<br />
+		<p>将alt属性当作图像标题来显示</p>
+		<img src="img/HBuilder.png" alt="Hbuilder" />
+		<br />
+		<br />
+		<ul>
+			<li>标题</li>
+			<li>标题</li>
+			<li>标题</li>
+			<li>标题</li>
+			<li>标题</li>
+		</ul>
+		<br />
+		<br />
+		<p  id="word">字</p>
+		<div id="shadow"></div>
+		<br />
+		<br />
+		<div id="size1" class="size">示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字</div>
+		<div id="size2" class="size">示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字</div>
+		<div id="size3" class="size">示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字</div>
+		<br />
+		<br />
+		<div class="linear" id="linear1"></div>
+		<div class="linear" id="linear2"></div>
+		<div class="linear" id="linear3"></div>
+		<div class="linear" id="linear4"></div>
+		<div class="linear" id="radial1"></div>
+		<div class="linear" id="radial2"></div>
+		<div class="linear" id="radial3"></div>
+		<div class="linear" id="radial4"></div>
+		<br />
+		<br />
+		<a>摸我摸我</a>	
+		<br />
+		<br />
+		<section id="tran">
+			<div>ease</div>
+			<div>ease-in</div>
+			<div>ease-out</div>
+			<div>ease-in-out</div>
+			<div>linear</div>
+		</section>
+		<section id="transf">
+			<div>skew</div>
+			<div>rotate</div>
+			<div>translate</div>
+			<div>scale</div>
+			<div>all</div>
+		</section>
+		<section id="imgShow">
+			
+			<div id="container">
+				<img src="img/1.jpg" />
+				<img src="img/2.jpg" />
+				<img src="img/3.jpg" />
+				<img src="img/4.jpg" />
+				<img src="img/5.jpg" />
+				<img src="img/6.jpg" />
+				<img src="img/7.jpg" />
+				<img src="img/8.jpg" />
+				<img src="img/9.jpg" />
+				
+			</div>
+			<p style="font-size: 50px;margin: 600px 0;">旋转木马</p>
+			<p id="btn">反向</p>
+			<script>
+				var oContainer = document.getElementById("container");
+				var oBtn = document.getElementById("btn");
+				var i = 0;
+				var incre = 40;
+				
+				oBtn.onclick = function(){
+						incre = -incre;
+				}
+				oContainer.onclick = function(){
+					i = i + incre;
+					this.style.cssText = "transform: rotateY("+ -i + "deg); transition:all 0.6s ease;" 
+
+				}
+				oBtn.onmousedown = function(){
+					this.style.backgroundColor = "skyblue";
+					
+				}
+				oBtn.onmouseup = function(){
+					this.style.backgroundColor = "";
+				}
+			</script>
+		</section>
+		
+	</body>
+</html>
